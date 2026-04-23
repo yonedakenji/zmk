@@ -33,7 +33,7 @@
         #binding-cells = <2>;
         flavor = "tap-preferred";
         tapping-term-ms = <3000>;  // delay amount in ms
-         = <&recover>, <&none>;
+        bindings = <&recover>, <&none>;
     };
 
     long_press_change:l2{
