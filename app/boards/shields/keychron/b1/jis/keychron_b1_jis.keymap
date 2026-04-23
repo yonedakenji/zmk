@@ -11,6 +11,15 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        ctrl_b_to_left: ctrl_b_to_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp B>, <&kp LEFT>;   // 通常時: Bキー / Ctrl時: 左矢印
+            mods = <(MOD_LCTRL | MOD_RCTRL)>; // 左右どちらのCtrlでも反応
+        };
+    };
+
     ZMK_MACRO(recover, bindings = <&out OUT_RECOVER>;)
     ZMK_MACRO(change, bindings = <&out OUT_FN>;)
     ZMK_MACRO(fn_win, bindings = <&out OUT_FN_WIN>;)
@@ -24,7 +33,7 @@
         #binding-cells = <2>;
         flavor = "tap-preferred";
         tapping-term-ms = <3000>;  // delay amount in ms
-        bindings = <&recover>, <&none>;
+         = <&recover>, <&none>;
     };
 
     long_press_change:l2{
