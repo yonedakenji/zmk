@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker.io/zmkfirmware/zmk-build-arm:3.2
-    needs: compile-matrix
+    _needs: compile-matrix
     strategy:
       matrix:
         include: ${{ fromJSON(needs.compile-matrix.outputs.include-list) }}
